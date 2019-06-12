@@ -9,15 +9,15 @@ class Mailer
         $this->mailer = $mailer;
     }
 
-public function compose($to, $from, $body, $subject)
-{
-    $this->mail = [
-        'to' => $to,
-        'from' => $from,
-        'body' => $body,
-        'subject' => $subject
-    ];
-}
+    public function compose($to, $from, $body, $subject)
+    {
+        $this->mail = [
+            'to' => $to,
+            'from' => $from,
+            'body' => $body,
+            'subject' => $subject
+        ];
+    }
 
     public function send() 
     {
@@ -50,7 +50,8 @@ class GoogleMailer
         $this->settings['host'] = $host;
     }
 
-    public function setUser(string $user) {
+    public function setUser(string $user) 
+    {
         $this->settings['user'] = $user;
     }
 
