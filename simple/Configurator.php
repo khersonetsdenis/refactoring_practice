@@ -1,11 +1,16 @@
 <?php
 
-class MailConfigurator
+interface Configurator 
 {
     private $settings;
-
     private $configuration;
+    
+    public function setConnection($settings);
+}
 
+class MailConfigurator implements Configurator
+{
+    
     public function setConnection($settings)
     {
         $this->settings = $settings;
@@ -23,12 +28,9 @@ class MailConfigurator
     }
 }
 
-class DatabaseConfigurator
+class DatabaseConfigurator implements Configurator
 {
-    private $settings;
-
-    private $configuration;
-
+   
     public function setConnection($settings)
     {
         $this->settings = $settings;
@@ -48,7 +50,7 @@ class DatabaseConfigurator
     }
 }
 
-class CacheConfigurator
+class CacheConfigurator implements Configurator
 {
     private $settings;
 
