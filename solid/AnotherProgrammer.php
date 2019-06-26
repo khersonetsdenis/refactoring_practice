@@ -7,6 +7,12 @@ class AnotherProgrammer
     {
         return 'coding';
     }
+    public function process($member)
+    {
+        if ($member instanceof AnotherProgrammer) {
+            $member->code();
+        }
+    }
 }
 class Tester
 {
@@ -14,17 +20,20 @@ class Tester
     {
         return 'testing';
     }
+    public function process($member)
+    {
+        if ($member instanceof Tester) {
+            $member->test();
+        }
+    }
 }
 class ProjectManagement
 {
-    public function process($member)
+    public function calculate($employee)
     {
-        if ($member instanceof AnotherProgrammer) {
-            $member->code();
-        } elseif ($member instanceof Tester) {
-            $member->test();
-        };
-        throw new Exception('Invalid input member');
+        $member = null;
+        $member = $employee->process($member);
+        return $member;
     }
 }
 
