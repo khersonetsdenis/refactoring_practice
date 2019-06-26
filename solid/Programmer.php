@@ -30,16 +30,8 @@ class Programmer implements Workable, WorkableTest
     }
 }
 
-class Tester implements Workable, WorkableTest
+class Tester implements WorkableTest
 {
-    public function canCode()
-    {
-        return false;
-    }
-    public function code()
-    {
-        throw new Exception('Opps! I can not code');
-    }
     public function test()
     {
         return 'testing in test server';
