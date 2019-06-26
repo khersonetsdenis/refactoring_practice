@@ -21,6 +21,11 @@ class Report
         ];
     }
 
+    
+}
+
+class Json extends Report
+{
     public function formatJson()
     {
         return json_encode($this->getContents());
