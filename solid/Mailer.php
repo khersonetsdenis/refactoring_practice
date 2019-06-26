@@ -1,14 +1,18 @@
 <?php
 
 //Hint - Dependency Inversion Principle
-class Mailer
+interface MailerInterface
+{
+}
+
+class Mailer implements MailerInterface
 {
 }
 
 class SendWelcomeMessage
 {
     private $mailer;
-    public function __construct(Mailer $mailer)
+    public function __construct(MailerInterface $mailer)
     {
         $this->mailer = $mailer;
     }
