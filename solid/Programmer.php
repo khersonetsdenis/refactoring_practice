@@ -24,10 +24,6 @@ class Programmer implements Workable, WorkableTest
     {
         return 'coding';
     }
-    public function test()
-    {
-        return 'testing in localhost';
-    }
 }
 
 class Tester implements WorkableTest
