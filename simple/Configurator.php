@@ -1,14 +1,14 @@
 <?php
 
-class Configurator 
+abstract class Configurator
 {
-    private $settings;
-    private $configuration;
-    
+    protected $settings;
+    protected $configuration;
     public function setConnection($settings)
     {
         $this->settings = $settings;
     }
+    abstract public function configure();
 }
 
 class MailConfigurator extends Configurator
@@ -18,22 +18,18 @@ class MailConfigurator extends Configurator
     {
         return 'mail sender';
     }
-
     public function configure()
     {
         $this->configuration = $this->settings['mailer_options'];
         return $this;
     }
 }
-
 class DatabaseConfigurator extends Configurator
 {
-   
     public function getDriver()
     {
         return 'get some db driver';
     }
-
     public function configure()
     {
         $this->configuration['dsn'] = $this->settings['dsn'];
@@ -42,15 +38,12 @@ class DatabaseConfigurator extends Configurator
         return $this;
     }
 }
-
 class CacheConfigurator extends Configurator
 {
-
     public function getStorage()
     {
         return 'get some cache storage';
     }
-
     public function configure()
     {
         $this->configuration['host'] = $this->settings['host'];
