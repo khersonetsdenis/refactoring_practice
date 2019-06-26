@@ -5,10 +5,16 @@ interface Workable
 {
     public function canCode();
     public function code();
-    public function test();
+    
 }
 
-class Programmer implements Workable
+interface WorkableTest 
+{
+public function test();
+}
+
+
+class Programmer implements Workable, WorkableTest
 {
     public function canCode()
     {
@@ -24,7 +30,7 @@ class Programmer implements Workable
     }
 }
 
-class Tester implements Workable
+class Tester implements Workable, WorkableTest
 {
     public function canCode()
     {
