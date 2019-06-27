@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('books', 'BookController@index');
+Route::get('book', 'BookController@create');
+Route::post('book', 'BookController@store')->name('create_book');
+Route::get('/book/{id}', 'BookController@show');
+Route::delete('/book/{id}', 'BookController@destroy');

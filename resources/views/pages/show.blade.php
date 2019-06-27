@@ -5,6 +5,7 @@
             Book details
         </div>
         <form>
+            @crsf
             <div class="card-body">
                 <h5 class="card-title">Book title</h5>
                 <p class="card-text">Book author</p>

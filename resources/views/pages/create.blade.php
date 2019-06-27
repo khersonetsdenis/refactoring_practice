@@ -1,7 +1,8 @@
 @extends('layouts.default')
 @section('content')
-    <form>
+    <form method="post" action="{{ route('create_book') }}">
         <div class="form-group">
+            @crsf
             <label for="title">Title</label>
             <input type="text" class="form-control" id="title" aria-describedby="titleHelp" placeholder="Enter title">
             <small id="titleHelp" class="form-text text-muted">Type some title.</small>
