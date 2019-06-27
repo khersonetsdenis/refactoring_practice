@@ -10,10 +10,10 @@
                 <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">List</a>
+                <a class="nav-link" href="{{ route('list_books') }}">List</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Create</a>
+                <a class="nav-link" href="{{ route('create') }}">Create</a>
             </li>
         </ul>
 

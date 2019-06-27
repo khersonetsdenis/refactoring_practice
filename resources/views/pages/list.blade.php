@@ -11,24 +11,14 @@
         </tr>
         </thead>
         <tbody>
+        @foreach($books as $book)
         <tr>
-            <th scope="row"><a href="#">1</a></th>
-            <td>PHP for dummies</td>
-            <td>Dummy</td>
-            <td>NB-123-321</td>
+            <th scope="row"><a href="{{ route('show_book', ['id' => $book->id]) }}">{{ $book->id }}</a></th>
+            <td>{{ $book->title }}</td>
+            <td>{{ $book->author }}</td>
+            <td>{{ $book->isbn }}</td>
         </tr>
-        <tr>
-            <th scope="row"><a href="#">2</a></th>
-            <td>Super book</td>
-            <td>Superman</td>
-            <td>SB-321-543</td>
-        </tr>
-        <tr>
-            <th scope="row"><a href="#">3</a></th>
-            <td>MySQL for students</td>
-            <td>B. Teacher</td>
-            <td>MS-541-631</td>
-        </tr>
+        @endforeach
         </tbody>
     </table>
     <nav aria-label="Page navigation example">

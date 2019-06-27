@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Book;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -13,7 +14,10 @@ class BookController extends Controller
      */
     public function index()
     {
-        return view('pages.list');
+        $books = Book::all();
+
+
+    	return view('pages.list', compact('books'));
     }
 
     /**
@@ -34,7 +38,21 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        return redirect('/books');
+        $this->validate($request, [
+        	'title' => 'required',
+			'author' => 'required',
+			'isbn' => 'required|unique:books'
+		]);
+
+        $book = new Book();
+		/*$book->title = $request->title;
+		$book->author = $request->author;
+		$book->isbn = $request->isbn;*/
+		//$book->save();
+
+
+		Book::create($request->all());
+		return redirect()->to('/books');
     }
 
     /**
@@ -45,7 +63,8 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        return view('pages.show');
+    	$book = Book::findOrFail($id);
+        return view('pages.show', compact('book'));
     }
 
     /**

@@ -5,11 +5,11 @@
             Book details
         </div>
         <form>
-            @crsf
+            @csrf
             <div class="card-body">
-                <h5 class="card-title">Book title</h5>
-                <p class="card-text">Book author</p>
-                <p class="card-text">Book content</p>
+                <h5 class="card-title">{{ $book->title }}</h5>
+                <p class="card-text">{{ $book->author }}</p>
+                <p class="card-text">{{ $book->isbn }}</p>
                 <button href="#" class="btn btn-primary">Delete</button>
             </div>
         </form>
