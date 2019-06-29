@@ -39,12 +39,6 @@ class Square extends Rectangle
         $this->width = $value;
         $this->height = $value;
     }
-
-    public function setWidth($value)
-    {
-        $this->width = $value;
-        $this->height = $value;
-    }
 }
 
 class RectangleTest
